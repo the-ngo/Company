@@ -1,0 +1,84 @@
+#!/usr/bin/env python
+# ~/scripts/exemmlmx.py
+import traceback
+import paramiko
+from paramiko_expect import SSHClientInteraction
+
+class DxNode:
+    def __init__(self, ip, username, password):
+        self.username = username
+        self.password = password
+        self.prompt = '< \x08 '
+        self.host = ip
+        self.connected = False
+        self.client = None
+
+    def connect(self):
+        if not self.connected:
+            # Create a new SSH client object
+            self.client = paramiko.SSHClient()
+
+            # Set SSH key parameters to auto accept unknown hosts
+            self.client.load_system_host_keys()
+            self.client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+
+            # Connect to the host
+            self.client.connect(hostname=self.host, username=self.username, password=self.password)
+            self.connected = True
+        elif self.connected:
+            pass
+        else:
+            return "failed to connect"
+
+    def command(self, mml_command, confirm=False):
+        try:
+            if not self.connected:
+                self.connect()
+
+            # Create a client interaction class which will interact with the host
+            with SSHClientInteraction(self.client, timeout=10, display=False) as interact:
+                interact.expect(self.prompt)
+                # TODO: Create adapter class for MML interaction
+                # Run the first command and capture the cleaned output, if you want
+                # the output without cleaning, simply grab current_output instead.
+                res = interact.current_output
+                for command in mml_command:
+                    interact.send(command)
+                    interact.expect(self.prompt)
+                    res += interact.current_output
+
+                # TODO: Add function to check for user confirmation flag
+                return res
+
+        except Exception:
+            traceback.print_exc()
+
+    def close(self):
+        try:
+            self.client.close()
+            self.connected = False
+        except:
+            pass
+
+if __name__ == '__main__':
+    # Args
+    # -c --command
+    # -n --node
+    import argparse
+
+    import argparse
+
+    parser = argparse.ArgumentParser()
+
+    parser = argparse.ArgumentParser(description='')
+    parser.add_argument('-n', '--node', nargs='+', help="Designate node to interrogate", required=True, type=str)
+    parser.add_argument('-c', '--command', nargs='+', help="Pass a query to the script", required=True, type=str)
+    parser.add_argument('-y', '--confirm', help="Confirm execution if prompted", required=False, action="store_true")
+    args = parser.parse_args()
+
+    for node in args.node:
+        username = 'username'
+        password = 'password'
+        dx_node = DxNode(node, username, password)
+        print(dx_node.command(args.command))
+    dx_node.close()
