@@ -1,0 +1,9 @@
+coda        OV Performance Core                 COREXT       (62892)  Running
+opcacta     OVO Action Agent                    AGENT,EA     (62930)  Running
+opcle       OVO Logfile Encapsulator            AGENT,EA     (89628)  Running
+opcmona     OVO Monitor Agent                   AGENT,EA     (89635)  Running
+opcmsga     OVO Message Agent                   AGENT,EA     (62872)  Running
+opcmsgi     OVO Message Interceptor             AGENT,EA     (89656)  Running
+ovbbccb     OV Communication Broker             CORE         (62671)  Running
+ovcd        OV Control                          CORE         (62662)  Running
+ovconfd     OV Config and Deploy                COREXT       (62698)  Stopped

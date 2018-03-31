@@ -64,21 +64,23 @@ if __name__ == '__main__':
     # Args
     # -c --command
     # -n --node
-    import argparse
+    # import argparse
+    #
+    # import argparse
+    #
+    # parser = argparse.ArgumentParser()
+    #
+    # parser = argparse.ArgumentParser(description='')
+    # parser.add_argument('-n', '--node', nargs='+', help="Designate node to interrogate", required=True, type=str)
+    # parser.add_argument('-c', '--command', nargs='+', help="Pass a query to the script", required=True, type=str)
+    # parser.add_argument('-y', '--confirm', help="Confirm execution if prompted", required=False, action="store_true")
+    # args = parser.parse_args()
 
-    import argparse
-
-    parser = argparse.ArgumentParser()
-
-    parser = argparse.ArgumentParser(description='')
-    parser.add_argument('-n', '--node', nargs='+', help="Designate node to interrogate", required=True, type=str)
-    parser.add_argument('-c', '--command', nargs='+', help="Pass a query to the script", required=True, type=str)
-    parser.add_argument('-y', '--confirm', help="Confirm execution if prompted", required=False, action="store_true")
-    args = parser.parse_args()
-
-    for node in args.node:
-        username = 'username'
-        password = 'password'
-        dx_node = DxNode(node, username, password)
-        print(dx_node.command(args.command))
+    # for node in args.node:
+    username = 'NUPADM'
+    password = 'ALLPASSW'
+    node = '5.208.16.26'
+    cmd='ZWOI;'
+    dx_node = DxNode(node, username, password)
+    print(dx_node.command(cmd))
     dx_node.close()
