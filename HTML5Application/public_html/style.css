@@ -1,0 +1,158 @@
+
+body{
+    margin: 0;
+    padding: 0; 
+    background: #edecec;
+    font-family: sans-serif;
+}
+
+.resetpassword{
+    
+    width: 40%;
+    margin: 0 auto;
+    background: #fff;
+    border-radius:10px;
+    border: solid 1px #ff0099;
+    padding: 20px;
+    text-align: center;
+    margin-top: 50px;
+}
+
+.user
+{
+    margin-top: -50px;
+}
+
+h3
+{
+    margin: 0;
+    padding: 0 0 20px;
+    color: #ff0099;
+    text-align: center;
+    padding-top: 40px;
+    font-size: 25px;
+}
+
+.resetpassword input
+{
+    height: 20px;
+    width: 60%;
+    margin-bottom: 20px;
+}
+
+.resetpassword input[type ="text"],
+.resetpassword input[type ="password"]
+{
+    border: none;
+    border-bottom: 2px solid #262626;;
+    outline: none;
+    height: 30px;
+    color: #262626;
+    font-size: 14px;
+    padding-left: 10px;
+    box-sizing: border-box;
+}
+
+.resetpassword input[type ="text"]:focus,
+.resetpassword input[type ="password"]:focus
+{
+    border-bottom: 2px solid #ff0099;
+}
+
+.resetpassword input[type ="submit"]
+{
+    height:40px;
+    font-size: 16px;
+    background: #ff0099;
+    color: #ffffff;
+    border-radius:10px;
+    border: solid 2px black;
+}
+
+.resetpassword input[type ="submit"]:focus
+{
+    height:40px;
+    font-size: 20px;
+    background: #ff0099;
+    color: #ffffff;
+    border: solid 1px #262626
+}
+
+.icon
+{
+    position: absolute;
+    padding-left: 95px
+    
+}
+.styled-select {
+    text-align: center;
+    padding-bottom:30px
+}
+
+.top_banner
+{  
+    height: 35px;
+    padding-left: 10px;
+    color: #FFFFFF;
+    background: #ff0099;
+    border-bottom: solid #000000 2px;
+}
+#div1
+{
+    padding-top: 5px;
+    font-size: 14px;
+}
+
+#div2
+{
+    padding-top: 5px;
+    padding-left: 10px;
+    color: #000000;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.hinh{
+    text-align: left !important;
+}
+.pw_guideline div
+{
+    margin-top: 30px;
+    text-align: center;
+    font-size: 15px;
+}
+
+.rule
+{
+    margin-top: 10px;
+    text-align: center;
+    color: #999999;
+    font-style: italic;
+    font-size: 12px
+}
+.pw_reset
+{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #ff0099;
+}
+
+.bottom_banner
+{   
+    border-top: solid #999999  1px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    font-size: 13px;
+    color: #999999;
+    padding-bottom: 10px
+}
+
+.link
+{
+    font-size: 12px !important;
+    text-align: center;
+}
