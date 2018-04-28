@@ -3,7 +3,8 @@ var fs = require('fs');
 var path = require('path')
 var hostname = '127.0.0.1';
 const port = 3000;
-
+var url = require('url');
+var querystring = require('querystring')
 http.createServer(function(req, res) {
   if (req.url === "/") {
     fs.readFile("./public/index.html", "UTF-8", function(err, html) {
@@ -28,11 +29,23 @@ http.createServer(function(req, res) {
       "Content-Type": "image/png"
     });
     fileStream.pipe(res);
-
-  } else {
+  }
+  else {
     res.writeHead(404, {
       "Content-Type": "text/html"
     });
     res.end("<h1> Page not found");
+  }
+
+  if(req.method ==="POST"){
+    var data = "";
+    req.on("data",function(chunk){
+      data += chunk;
+    });
+    req.on("end",function(chunk){
+      var formdata = querystring.parse(data);
+
+      console.log(type(formdata));
+    });
   }
 }).listen(port);

@@ -31,25 +31,24 @@
 
                     </select>
             </div>
-            <form>
+            <form action ="/" method = "POST">
                 <div>
                     <i class="fa fa-user" style="font-size:20px;"></i>
                     <input type ="text" name="username" placeholder="Username">
                 </div>
-
                 <div>
                     <i class="fa fa-lock" style="font-size:20px;"></i>
-                    <input type ="password" name="password" placeholder="Old Password">
+                    <input type ="password" name="older_password" id="older_password" placeholder="Old Password">
                 </div>
                 <div >
                     <i class="fa fa-lock" style="font-size:20px;"></i>
-                    <input type ="password" name="new password" placeholder="New Password">
+                    <input type ="password" name="new_password" id="new_password" placeholder="New Password">
                 </div>
 
                 <div><i class="fa fa-lock" style="font-size:20px;"></i>
-                    <input type ="password" name="retype password" placeholder="Confirm Password">
+                    <input type ="password" name="retype_password" id="retype_password" placeholder="Confirm Password">
                 </div>
-                <input type ="submit" name="reset" value="Change Password">
+                <button>submit </button>
                 <div>
                     <a class = "link" href="reset.html">Forget Password or Password Expired</a>
                 </div>
@@ -58,13 +57,10 @@
                 </div>
             </form>
         </div>
-
         <div class ="pw_guideline">
             <div>Password Guidelines</div>
         </div>
-
         <div class ="rule">
-
                 <div> New password cannot be same with 5 previous password</div>
                 <div>Be at least 8 characters and no more than 64 </div>
                 <div>Contain at leat one number [0-9]</div>
