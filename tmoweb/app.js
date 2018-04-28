@@ -34,9 +34,9 @@ http.createServer(function(req, res) {
     res.writeHead(404, {
       "Content-Type": "text/html"
     });
-    res.end("<h1> Page not found");
+    res.end("<h1> Page not found<h1>");
   }
-
+  //
   if(req.method ==="POST"){
     var data = "";
     req.on("data",function(chunk){
@@ -44,8 +44,22 @@ http.createServer(function(req, res) {
     });
     req.on("end",function(chunk){
       var formdata = querystring.parse(data);
+      console.log()
 
-      console.log(type(formdata));
+      console.log(data)
+      resa = data.replace(/&/g," ").replace(/=/g," ");
+      final = resa.split(" ");
+      console.log(resa)
+      for ( var i = 0 ; i<final.length; i++){
+        console.log(final[i]);
+      }
+      var username = final[1];
+      var oldpass = final[3];
+      var newpass = final[5];
+      var retype = final[7];
+      if (oldpass == newpass){
+        res.end("<h1> The new password cannot be same old password<h1>");
+      }
     });
   }
 }).listen(port);
