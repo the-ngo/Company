@@ -44,22 +44,24 @@ http.createServer(function(req, res) {
     });
     req.on("end",function(chunk){
       var formdata = querystring.parse(data);
-      console.log()
+      console.log(formdata.username);
+      console.log(formdata.older_password);
+      console.log(formdata.new_password);
+      console.log(formdata.retype_password);
 
-      console.log(data)
-      resa = data.replace(/&/g," ").replace(/=/g," ");
-      final = resa.split(" ");
-      console.log(resa)
-      for ( var i = 0 ; i<final.length; i++){
-        console.log(final[i]);
-      }
-      var username = final[1];
-      var oldpass = final[3];
-      var newpass = final[5];
-      var retype = final[7];
-      if (oldpass == newpass){
-        res.end("<h1> The new password cannot be same old password<h1>");
-      }
+      // resa = data.replace(/&/g," ").replace(/=/g," ");
+      // final = resa.split(" ");
+      // console.log(resa)
+      // for ( var i = 0 ; i<final.length; i++){
+      //   console.log(final[i]);
+      // }
+      // var username = final[1];
+      // var oldpass = final[3];
+      // var newpass = final[5];
+      // var retype = final[7];
+      // if (oldpass == newpass){
+      //   res.end("<h1> The new password cannot be same old password<h1>");
+      // }
     });
   }
 }).listen(port);

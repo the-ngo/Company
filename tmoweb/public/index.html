@@ -5,6 +5,31 @@
         <meta charset="UTF-8">
         <link rel="stylesheet" href="./css/style.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script>
+          function resetPassword(){
+            var older = $("#older_password").val();
+				    var new_ = $("#new_password").val();
+				    var retype = $("#retype_password").val();
+            if (older == "" || new_ == "" || retype == "") {
+              alert("Nhap day du");
+              return;
+            }
+            else {
+              if (older == new_) {
+                alert("Older khong duoc giong new");
+                return;
+              }
+              else if (new_ != retype) {
+                alert("type nhap vao khong giong new");
+                return;
+					    }
+              else{
+                location.href = "index.html";
+              }
+            }
+          }
+         </script>
     </head>
     <body>
         <div class="top_banner">
@@ -28,7 +53,6 @@
                         <option value="T4OSS">T4OSS</option>
                         <option value="T5OSS">T5OSS</option>
                         <option value="All">All</option>
-
                     </select>
             </div>
             <form action ="/" method = "POST">
@@ -44,11 +68,10 @@
                     <i class="fa fa-lock" style="font-size:20px;"></i>
                     <input type ="password" name="new_password" id="new_password" placeholder="New Password">
                 </div>
-
                 <div><i class="fa fa-lock" style="font-size:20px;"></i>
                     <input type ="password" name="retype_password" id="retype_password" placeholder="Confirm Password">
                 </div>
-                <button>submit</button>
+                  <input type ="button" name="reset" value="Change Password" onclick="resetPassword()">
                 <div>
                     <a class = "link" href="reset.html">Forget Password or Password Expired</a>
                 </div>
